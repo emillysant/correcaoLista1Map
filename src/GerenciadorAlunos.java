@@ -60,4 +60,16 @@ public class GerenciadorAlunos {
 //            System.out.println(entry.getValue());
 //        }
 //    }
+
+    public Map<String, List<Aluno>> agruparAlunosPorNota(){
+        return this.alunos.values().stream().collect(Collectors.groupingBy(aluno -> {
+            if(aluno.getNota() >= 90) return "A";
+            else if(aluno.getNota() >=80) return "B";
+            else if(aluno.getNota() >= 70) return "C";
+            else if(aluno.getNota() >= 60) return "D";
+            else return "F";
+        }));
+    }
+
+
 }
